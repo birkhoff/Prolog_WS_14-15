@@ -1,0 +1,7 @@
+Rekursive Listenverarbeitung
+Listen sind eine rekursiv definierte Datenstruktur. Deshalb sind Prädikate zur Listenverarbeitung meist rekursive Prädikate mit folgender Strategie:
+– Zerlege die Liste in Kopf und Rest.
+– Mach was mit dem Kopf und verarbeite den
+(verkürzten) Rest rekursiv weiter.
+– Terminiere, wenn die Liste leer ist, oder der
+aktuelle Kopf bestimmte Merkmale aufweist.
