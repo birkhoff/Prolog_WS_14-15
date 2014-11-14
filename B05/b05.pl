@@ -36,23 +36,11 @@ infix(L1,L2):-
 
 
 
-%%%%%%%%%%% Alternative Loesung
-	
-infix2([],[]).
-infix2(L,I):-
-	prefix(L,I).
-infix2([_H|T], I):-
-	infix2(T,I).
 
+%%%%%%%%%%%%%%% 	weitere alternative Loesung
 
-
-
-
-
-%%%%%%%%%%%%%%% 	
-
-infix3(_L,[]).
-infix3(L,I):-
+infix3([],_L).
+infix3(I,L):-
 	infix3_(L,I).
 
 infix3_(L,I):-
