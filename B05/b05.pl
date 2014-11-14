@@ -14,24 +14,29 @@ reverse([],Acc,Acc).
 reverse([H|T],Acc,L2):-
 	reverse(T,[H|Acc],L2).
 	
+
+prefix([],_L).
+prefix([H|T],[H|T2]):-
+	prefix(T,T2).
+
 	
-prefix(L,P):-
-	append(P,_,L).
-
-postfix(L,P):-
-	append(_,P,L).
-
-%%%%%%%%  infix
-	
-infix(L,I):-
-	append(_,I,R),
-	append(R,_,L).
+postfix(X,L):-
+	reverse(L,L2),
+	prefix(X,L2).
 
 
 
 
 
-%%%%%%%%%%%
+%%%% Loesung von Herrn Rumpf
+
+infix(L1,L2):- 
+	prefix(L3,L2), 
+	postfix(L1,L3).
+
+
+
+%%%%%%%%%%% Alternative Loesung
 	
 infix2([],[]).
 infix2(L,I):-
@@ -69,23 +74,23 @@ infix3__([H|T1],[H|T2]):-
 zensur([a,b]).
 zensur([a,b|T]):-
 	zensur(T).
+
 	
 	
 ist([_A|_T]).
 
 
 
+%%% 5
 
-
+% a
 
 
 
 s(S):- 
 	np(NP,np), 
 	vp(VP,vp), 
-	append(NP,VP,S_1),
-	pp(PP),
-	append(S_1,PP,S).
+	append(NP,VP,S).
 
 vp(VP,vp):- 
 	v(V), 
@@ -93,11 +98,12 @@ vp(VP,vp):-
 	append(V,NP,VP).
 	
 	
-np(NP,X):- 
+np(NP,vp):- 
 	det(Det), 
-	n(N,X), 
-	append(Det,N,NP).
-	
+	n(N,vp), 
+	append(Det,N,NP).	
+
+
 np(NP,X):- pn(NP,X). 
 
 pn([maria],np).
@@ -105,36 +111,76 @@ det([den]).
 n([mann],vp). 
 v([sieht]).
 
-pp([]).
+
+
+/*
+%  b)
+
+
+s(S):- 
+	np(NP,np), 
+	vp(VP,vp), 
+	append(NP,VP,S).
+
+vp(VP,vp):- 
+	v(V), 
+	np(NP,vp), 
+	append(V,NP,VP1),
+	pp(PP),
+	append(VP1,PP,VP).		%% PP's an vp haengen
+	
+	
+np(NP,vp):- 
+	det(Det), 
+	n(N,vp), 
+	append(Det,N,NP1),
+	pp(PP),
+	append(NP1,PP,NP).			%% PP's an np haengen
+
+
+np(NP,X):- pn(NP,X). 
+
+pn([maria],np).
+det([den]).
+n([mann],vp). 
+v([sieht]).
+
+
 pp(PP):-
+	pp1(PP).
+
+pp(PP):-
+	pp(PP1),
+	pp1(PP2),
+	append(PP1,PP2,PP).
+
+
+pp1([]).
+
+pp1(PP):-
+	q(X,wo),
+	w(Y,wo),
+	append(X,Y,PP).
+
+
+pp1(PP):-
 	q(X,womit),
 	d(Y),
 	append(X,Y,R),
 	w(Z,womit),
-	append(R,Z,Q),
-	pp(P),
-	append(Q,P,PP).
+	append(R,Z,PP).
+	
 
-pp(PP):-
-	q(X,wo),
-	w(Y,wo),
-	append(X,Y,R),
-	pp(P),
-	append(R,P,PP).
 
-	
-	
-	
 	
 q([mit], womit).
 q([im], wo).
 d([dem]).
 
-w([garten],wo).
+w([park],wo).
 w([teleskop],womit).
-	
 
-
+*/
 	
 
 
