@@ -63,10 +63,6 @@ zensur([a,b]).
 zensur([a,b|T]):-
 	zensur(T).
 
-	
-	
-ist([_A|_T]).
-
 
 
 %%% 5
