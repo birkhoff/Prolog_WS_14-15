@@ -21,7 +21,7 @@ a2(CountA) -->	[a], {CountA = [b]};
 
 s5 --> v5(X), verb, v5(Y), {X\=Y}.
 
-nom(acc)	--> 	[mann].
+nom(_)	--> 	[mann].
 nom(nom)	--> 	[maria].
 v5(X) 		--> 	art(X), nom(X).
 verb 		--> 	[gruesst].
@@ -85,7 +85,7 @@ object-->[dem,teleskop].
 
 s4		-->		a(N), b(N), c(N).
 a(0)	-->	 	[].
-a(N)	-->		[a], {N=s(N1)}, a(N1). % s(s(s(0)))
+a(N)	-->		[a], {N=s(N1)}, a(N1).     % s(s(s(0)))
 b(0)	--> 	[].
 b(N)	-->		[b], {N=s(N1)}, b(N1).
 c(0)	-->		[].
