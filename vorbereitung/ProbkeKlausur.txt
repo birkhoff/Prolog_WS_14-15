@@ -1,0 +1,21 @@
+1) Schreiben sie append
+
+2) Schreiben sie Tante
+
+3) Schreiben sie reverse mit akkumulator
+
+4) Geben sie den Rest einer Liste aus
+
+% rest([1,2,3],[2,3]).
+
+5) schreiben sie delete
+
+6) schreiben sie die Grammatik hui^n bumm
+
+7) Optimieren sie das Programm mithilfe des Cut Operators
+
+ist_eine_liste(X,1):-
+	is_list(X).
+	
+ist_eine_liste(X,-1):-
+	\+ is_list(X).
