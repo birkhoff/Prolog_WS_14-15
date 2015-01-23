@@ -68,6 +68,15 @@ ist_eine_liste(X,1):-
 ist_eine_liste(X,-1).
 
 
+% Univ
+% =..
+% P =.. [append, [1,2,3],[4,5],R].
+% P = append([1, 2, 3], [4, 5], R).
+% Prädikat =.. Liste
+
+call_list(X):-
+	P =.. X,
+	call(P).
 
 
 
