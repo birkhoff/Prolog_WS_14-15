@@ -220,7 +220,7 @@ call_list(L):-
 % foo(a,b)=..[FUNC|Args], NewArgs=[c|Args], P=..[FUNC|NewArgs].
 
 % ein Praedikat welches ein X immer vor alle anderen Argumente setzt
-% und aufruft: Bsp f_a([member,[1,2,3]]) called member(X,[1,2,3])
+% und aufruft: Bsp f_a([member,[1,2,3]], X) called member(X,[1,2,3])
 
 f_a([Func|Args],X):-
 	NewArgs = [X|Args],
