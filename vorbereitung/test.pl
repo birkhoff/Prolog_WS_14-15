@@ -74,13 +74,22 @@ ist_eine_liste(X,-1).
 % P = append([1, 2, 3], [4, 5], R).
 % Prädikat =.. Liste
 
-call_list(X):-
-	P =.. X,
+% Schreiben sie ein Prädikat, welches eine Liste in ein Prädikat umwandelt und
+% dann per call aufruft
+
+call_list(L):-
+	P =.. L,
 	call(P).
 
 
 
+/*
 
+?- call_list([append, [1,2,3],[4,5],R]).
+R = [1, 2, 3, 4, 5].
+
+
+*/
 	
 
 	
